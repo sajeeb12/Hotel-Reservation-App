@@ -1,0 +1,67 @@
+<div class="bg-gray-100 py-10 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Reservations List</h1>
+
+
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                @for(reservation of reservations;track $index){
+                <div class="bg-white shadow-md rounded-lg p-6">
+            
+                    <div class="mb-4">
+                        <h2 class="text-xl font-bold text-indigo-600">
+                            Reservation #{{$index + 1}}</h2>
+                    </div>
+                    <div class="text-gray-700">
+            
+                        <p><span class="font-semibold">Guest Name:</span>
+                            {{reservation.guestName}}</p>
+                        <p><span class="font-semibold">Email:</span>
+                            {{reservation.guestEmail}}</p>
+                        <p><span class="font-semibold">Room Number:</span>
+                            {{reservation.roomNumber}}</p>
+                        <p><span class="font-semibold">Check-In:</span>
+                            {{reservation.checkInDate}}</p>
+                        <p><span class="font-semibold">Check-Out:</span>
+                            {{reservation.checkOutDate}}</p>
+            
+                    </div>
+                    <div class="mt-4 flex justify-end space-x-2">
+                        <button class="bg-yellow-500 text-white px-4 py-2 rounded-lg
+                                     shadow hover:bg-yellow-600" 
+                                     [routerLink]="['/edit',reservation.id]" >Edit</button>
+                        <button class="bg-red-500 text-white px-4 py-2 rounded-lg
+                                 shadow hover:bg-red-600" 
+                                 (click) = "deleteReservation($index)">Delete</button>
+                    </div>
+                </div>
+                }@empty {
+                    <div class="bg-gray-100 h-screen flex items-center justify-center">
+                        <div class="text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" 
+                            class="h-20 w-20 mx-auto text-gray-400" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                 stroke-width="2"
+                                d="M9 17v2a2 2 0 002 2h2a2 2 0 002-2v-2M15 12a3 3 0 11-6 0M12 3v9" 
+                                 />
+                            </svg>
+                            <h1 class="text-2xl font-bold text-gray-700 mt-4">
+                                No Reservations Found</h1>
+                            <p class="text-gray-500 mt-2">It looks like there are no reservations 
+                                 yet. Add a new reservation to get started.
+                            </p>
+                            <button class="mt-6 bg-indigo-600 text-white py-2 px-4 rounded-lg
+                             shadow hover:bg-indigo-700 transition"
+                                [routerLink]="'/new'">
+                                Add a New Reservation
+                            </button>
+                        </div>
+                    </div>
+                }
+            </div>
+            
+        
+       
+    </div>
+</div>

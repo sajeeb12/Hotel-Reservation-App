@@ -1,0 +1,35 @@
+<nav class="bg-indigo-600 text-white shadow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <a href="/" class="text-lg font-bold">Hotel Reservations</a>
+
+            <div class="hidden md:flex space-x-4">
+                <a href="/" [routerLink]="'/'" class="hover:bg-indigo-500 px-3 py-2 rounded-md">Home</a>
+                <a [routerLink]="'/new'"  
+                class="hover:bg-indigo-500 px-3 py-2 rounded-md">Create Reservation</a>
+
+                <a [routerLink]="'/list'" class="hover:bg-indigo-500 px-3 py-2 rounded-md">View Reservations</a>
+                <a [routerLink]="'/'" class="hover:bg-indigo-500 px-3 py-2 rounded-md">Contact</a>
+            </div>
+
+            <div class="md:hidden">
+                <button id="menu-toggle" class="focus:outline-none">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="mobile-menu" class="hidden md:hidden bg-indigo-700">
+        <a href="/" class="block px-4 py-2 hover:bg-indigo-600">Home</a>
+        <a href="/new" class="block px-4 py-2 hover:bg-indigo-600">Create Reservation</a>
+        <a href="/list" class="block px-4 py-2 hover:bg-indigo-600">View Reservations</a>
+        <a href="/contact" class="block px-4 py-2 hover:bg-indigo-600">Contact</a>
+    </div>
+</nav>
+
